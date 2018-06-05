@@ -1,0 +1,57 @@
+# Chip8 is a virtual machine designed in 1977 for programming video games.
+# UniCHIP8 is an implementation of CHIP8 for Unity 3D.
+# Octo is a high level assembler, disassembler and simulator for Chip8.
+#
+#
+# program:
+#     managed-world-space.u8o
+#
+#
+# about: 
+#     Sets up a limited world-space that can be
+#     managed from within UniCHIP8 programs.
+#
+#     Because CHIP8 registers are only a byte wide,
+#     we're limited to passing 0-255 where Unity
+#     wants floats. No 360 degree rotations either.
+#
+#     Requires a "Main Camera" GameObject in the
+#     scene and that it be connected to the same
+#     router as the "UniCHIP8" GameObject running
+#     this program.
+#
+#
+
+: main
+
+    # Center the camera in UniCHIP8's limited
+    # world-space, pulled back 2 units on the
+    # z axis.
+
+    i := unity-main-camera
+    v0 := 127
+    v1 := 127
+    v2 := 125
+    uc-move
+
+
+    # Center the UniCHIP8 GameObject in our
+    # world-space, in-front of the camera.
+
+    i := unity-unichip8
+    v0 := 127
+    v1 := 127
+    v2 := 127
+    uc-move
+
+    # game logic goes here
+
+    uc-halt
+
+
+: unity-main-camera
+        0x4d 0x61 0x69 0x6e 0x20 0x43 0x61 0x6d 0x65 0x72 0x61 0x00
+
+: unity-unichip8
+        0x55 0x6e 0x69 0x43 0x48 0x49 0x50 0x38 0x00
+

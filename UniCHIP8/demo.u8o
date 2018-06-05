@@ -1,15 +1,18 @@
 # Chip8 is a virtual machine designed in 1977 for programming video games.
 # UniCHIP8 is an implementation of CHIP8 for Unity 3D.
 # Octo is a high level assembler, disassembler and simulator for Chip8.
-
-# demo.u8o
 #
-#  Attach a UniCHIP8Node component to the Main Camera before running
+# program:
+#     demo.u8o
 #
-#  This program will move the camera and UniCHIP8 instance to the
-#  center of it's effective operating area within the scene.
-
-# CS
+#
+# about:
+#     Attach a UniCHIP8Node component to the Main Camera before running
+#
+#     This program will move the camera and UniCHIP8 instance to the
+#     center of it's effective operating area within the scene.
+#
+#
 
 : main
 	# move the camera
@@ -28,8 +31,6 @@
 
 	uc-halt
 
-
-# DS
 
 : unity-main-camera
         0x4d 0x61 0x69 0x6e 0x20 0x43 0x61 0x6d 0x65 0x72 0x61 0x00

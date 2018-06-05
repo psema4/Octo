@@ -1,10 +1,15 @@
 # Chip8 is a virtual machine designed in 1977 for programming video games.
 # UniCHIP8 is an implementation of CHIP8 for Unity 3D.
 # Octo is a high level assembler, disassembler and simulator for Chip8.
+#
+# program:
+#     dataTransfer-red.u8o
+#
+# about:
+#
+#
+#
 
-# dataTransfer-red
-
-# CS
 
 : main
 	# send a message to the blue CPU
@@ -39,8 +44,6 @@
 
 	uc-halt
 
-
-# DS
 
 : unity-main-camera
         0x4d 0x61 0x69 0x6e 0x20 0x43 0x61 0x6d 0x65 0x72 0x61 0x00

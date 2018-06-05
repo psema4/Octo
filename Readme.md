@@ -87,20 +87,64 @@ The `scale` argument is optional and specifies the number of pixels which should
 UniCHIP8 Extensions
 -------------------
 
-This Octo fork provides compiler tokens for the opcodes defined by UniCHIP8; these are in the form of uc-<UniCHIP8 
-opcode mnemonic>
+This Octo fork provides support in the compiler for UniCHIP8 opcode extensions.
 
-See the UniCHIP8 folder in this repo for examples
+To refer to a UniCHIP8 opcode in .u8o source files, use tokens of the form:
 
-See the UniCHIP8 project for more details on UniCHIP8
+    uc-<UniCHIP8 opcode mnemonic>
 
-To compile a .u8o source file:
+Supported UniCHIP8 opcodes:
+
+    Misc
+      uc-test              uc-call              uc-send
+      uc-reparent          uc-destroy
+
+    Transform
+      uc-move              uc-rotate            uc-scale
+      uc-moveX             uc-rotateX           uc-scaleX
+      uc-moveY             uc-rotateY           uc-scaleY
+      uc-moveZ             uc-rotateZ           uc-scaleZ
+
+    Create
+      uc-create            uc-createCube        uc-createSphere
+      uc-createCylinder    uc-createCapsule     uc-createPlane
+      uc-createQuad
+
+    Materials
+      uc-addMaterial       uc-setMaterialColor
+
+    Machine state
+      uc-clockMultiplier   uc-logging           uc-compatiblityMode
+      uc-pause             uc-halt             uc-powerDown
+
+
+Example (extract from UniCHIP8/managed-world-space.u8o)
+
+    # Center the camera in UniCHIP8's limited
+    # world-space, pulled back 2 units on the
+    # z axis.
+    
+    i := unity-main-camera
+    v0 := 127
+    v1 := 127
+    v2 := 125
+    uc-move
+
+See the UniCHIP8 folder for more example programs. For more details on the UniCHIP8 opcode extensions, see the 
+[UniCHIP8 project](https://github.com/psema4/unichip8/tree/feature/unity-integration).
+
+To compile a .u8o source file from the command-line, first:
 
 * ensure you have Node.js installed
 * clone this repo to your filesystem
-* cd into the Octo directory
-* ./octo ./UniCHIP8/demo.u8o ./UniCHIP8/out/demo.uc8
+* cd into the Octo folder
 
+Then
+
+* compile a source file: node ./octo UniCHIP8/demo.u8o UniCHIP8/out/demo.uc8
+* copy the output file demo.uc8 into the Roms folder of your UniCHIP8 project
+* set the ROM file property on a UniCHIP8 component to "demo.uc8"
+* play your scene in the Unity Editor to test
 
 Licensing
 ---------
