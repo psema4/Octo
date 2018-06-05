@@ -7,8 +7,7 @@ This Octo fork adds compiler support for UniCHIP8 extended opcodes.
 * [Octo](http://johnearnest.github.io/Octo/) is a high level assembler, disassembler and simulator for the CHIP-8
 * [UniCHIP8](https://github.com/psema4/unichip8) is a CHIP-8 implementation for Unity 3D
 
-<img src="https://raw.githubusercontent.com/psema4/unichip8/feature/unity-integration/Assets/UniCHIP8/unichip8-v1.png" 
-width="640" />
+<img src="https://raw.githubusercontent.com/psema4/unichip8/master/Assets/UniCHIP8/unichip8-v1.png" width="640" />
 
 UniCHIP8 Extensions
 -------------------
