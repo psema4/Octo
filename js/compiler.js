@@ -179,6 +179,16 @@ function Compiler(source) {
 		this.inst((op << 4) | x, (y << 4) | (n & 0xF));
 	}
 
+	/*******************/
+	/* UniCHIP8 Custom */
+	
+	this.ucop = function(a, b) {
+		this.inst(0x0E, (a << 4) | (b & 0xF));
+	}
+
+	/* End UniCHIP8 Custom */
+	/***********************/
+	
 	this.jump = function(addr, dest) {
 		this.rom[addr - 0x200] = (0x10 | ((dest >> 8) & 0xF));
 		this.rom[addr - 0x1FF] = (dest & 0xFF);
@@ -700,6 +710,199 @@ function Compiler(source) {
 		else if (this.isRegister(token)) {
 			this.vassign(this.register(token), this.next());
 		}
+		
+		/*******************/
+		/* UniCHIP8 Custom */
+		
+		// 0E00
+		else if (token == "uc-test") {
+			this.inst(0x0E, 0x00);
+		}
+		
+		// 0E01..0E0F
+		
+		// 0E10
+		else if (token == "uc-moveX") {
+			var N = this.register();
+			this.ucop(0x01, N);
+		}
+		
+		// 0E20
+		else if (token == "uc-moveY") {
+			var N = this.register();
+			this.ucop(0x02, N);
+		}
+
+		// 0E30
+		else if (token == "uc-moveZ") {
+			var N = this.register();
+			this.ucop(0x03, N);
+		}
+
+		// 0E40
+		else if (token == "uc-rotateX") {
+			var N = this.register();
+			this.ucop(0x01, N);
+		}
+		
+		// 0E50
+		else if (token == "uc-rotateY") {
+			var N = this.register();
+			this.ucop(0x02, N);
+		}
+
+		// 0E60
+		else if (token == "uc-scaleZ") {
+			var N = this.register();
+			this.ucop(0x03, N);
+		}
+
+		// 0E70
+		else if (token == "uc-scaleX") {
+			var N = this.register();
+			this.ucop(0x01, N);
+		}
+		
+		// 0E80
+		else if (token == "uc-scaleY") {
+			var N = this.register();
+			this.ucop(0x02, N);
+		}
+
+		// 0E90
+		else if (token == "uc-scaleZ") {
+			var N = this.register();
+			this.ucop(0x03, N);
+		}
+
+		// 0EAN
+		else if (token == "uc-create") {
+			var N = this.register();
+			this.ucop(0x0A, N);
+		}
+
+		// 0EB0
+		else if (token == "uc-createCube") {
+			this.inst(0x0E, 0xB0);
+		}
+		
+		// 0EB1
+		else if (token == "uc-createSphere") {
+			this.inst(0x0E, 0xB1);
+		}
+		
+		// 0EB2
+		else if (token == "uc-createCylinder") {
+			this.inst(0x0E, 0xB2);
+		}
+		
+		// 0EB3
+		else if (token == "uc-createCapsule") {
+			this.inst(0x0E, 0xB3);
+		}
+		
+		// 0EB4
+		else if (token == "uc-createPlane") {
+			this.inst(0x0E, 0xB4);
+		}
+		
+		// 0EB5
+		else if (token == "uc-createQuad") {
+			this.inst(0x0E, 0xB5);
+		}
+		
+		// 0EB6
+		else if (token == "uc-move") {
+			this.inst(0x0E, 0xB6);
+		}
+		
+		// 0EB7
+		else if (token == "uc-rotate") {
+			this.inst(0x0E, 0xB7);
+		}
+		
+		// 0EB8
+		else if (token == "uc-scale") {
+			this.inst(0x0E, 0xB8);
+		}
+
+		// 0EB9
+		else if (token == "uc-reparent") {
+			this.inst(0x0E, 0xB9);
+		}
+
+		// 0EBA
+		else if (token == "uc-addMaterial") {
+			this.inst(0x0E, 0xBA);
+		}
+
+		// 0EBB
+		else if (token == "uc-setMaterialColor") {
+			this.inst(0x0E, 0xBB);
+		}
+/*
+		// 0EBC
+		else if (token == "") {
+			this.inst(0x0E, 0xBC);
+		}
+
+		// 0EBD
+		else if (token == "") {
+			this.inst(0x0E, 0xBD);
+		}
+
+		// 0EBE
+		else if (token == "") {
+			this.inst(0x0E, 0xBE);
+		}
+*/	
+		// 0EBF
+		else if (token == "uc-destroy") {
+			this.inst(0x0E, 0xBF);
+		}		
+		
+		// 0EC0..0DFF
+		
+		// 0EF0
+		else if (token == "uc-send") {
+			this.inst(0x0E, 0xF0);
+		}
+		
+		// 0EF1..0EF8
+		
+		// 0EF9
+		else if (token == "uc-logging") {
+			this.inst(0x0E, 0xF9);
+		}
+		
+		// 0EFA
+		else if (token == "uc-compatabilityMode") {
+			this.inst(0x0E, 0xFA);
+		}
+		
+		// 0EFB
+		else if (token == "uc-clockMultiplier") {
+			this.inst(0x0E, 0xFB); 
+		}
+
+		// 0EFC
+		else if (token == "uc-pause") {
+			this.inst(0x0E, 0xFC);
+		}
+		
+		// 0EFD
+		else if (token == "uc-halt") {
+			this.inst(0x0E, 0xFD);
+		}
+		
+		// 0EFF
+		else if (token == "uc-powerDown") {
+			this.inst(0x0E, 0xFF);
+		}
+		
+		
+		/* End UniCHIP8 Custom */
+		/***********************/
 		else {
 			this.immediate(0x20, this.wideValue(token));
 		}
