@@ -84,6 +84,24 @@ Octo has a `share` feature which stores source code and configuration metadata i
 
 The `scale` argument is optional and specifies the number of pixels which should make up a high-resolution mode Chip8 pixel. Low-resolution mode pixels will be twice this size.
 
+UniCHIP8 Extensions
+-------------------
+
+This Octo fork provides compiler tokens for the opcodes defined by UniCHIP8; these are in the form of uc-<UniCHIP8 
+opcode mnemonic>
+
+See the UniCHIP8 folder in this repo for examples
+
+See the UniCHIP8 project for more details on UniCHIP8
+
+To compile a .u8o source file:
+
+* ensure you have Node.js installed
+* clone this repo to your filesystem
+* cd into the Octo directory
+* ./octo ./UniCHIP8/demo.u8o ./UniCHIP8/out/demo.uc8
+
+
 Licensing
 ---------
 Octo, along with all its associated documentation, examples and tooling, are made available under the MIT license. See LICENSE.txt for additional details. If for any reason this is insufficiently flexible or permissive for some application, please contact John Earnest with your request. Contributions to this repository are welcome, with the understanding that they will fall under the same licensing conditions.
