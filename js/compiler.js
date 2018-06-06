@@ -757,37 +757,37 @@ function Compiler(source) {
 		// 0E40
 		else if (token == "uc-rotateX") {
 			var N = this.register();
-			this.ucop(0x01, N);
+			this.ucop(0x04, N);
 		}
 		
 		// 0E50
 		else if (token == "uc-rotateY") {
 			var N = this.register();
-			this.ucop(0x02, N);
+			this.ucop(0x05, N);
 		}
 
 		// 0E60
 		else if (token == "uc-scaleZ") {
 			var N = this.register();
-			this.ucop(0x03, N);
+			this.ucop(0x06, N);
 		}
 
 		// 0E70
 		else if (token == "uc-scaleX") {
 			var N = this.register();
-			this.ucop(0x01, N);
+			this.ucop(0x07, N);
 		}
 		
 		// 0E80
 		else if (token == "uc-scaleY") {
 			var N = this.register();
-			this.ucop(0x02, N);
+			this.ucop(0x08, N);
 		}
 
 		// 0E90
 		else if (token == "uc-scaleZ") {
 			var N = this.register();
-			this.ucop(0x03, N);
+			this.ucop(0x09, N);
 		}
 
 		// 0EAN
