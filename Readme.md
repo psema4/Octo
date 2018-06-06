@@ -30,7 +30,7 @@ instruction token:
       uc-create            uc-createCube        uc-createSphere
       uc-createCylinder    uc-createCapsule     uc-createPlane
       uc-createQuad        uc-createEmpty		uc-createDirectionalLight
-	  uc-createPointLight  uc-createAreaLight   uc-createSpotLight
+	  uc-createPointLight  uc-createSpotLight
 
     Materials
       uc-addMaterial       uc-setMaterialColor

@@ -887,14 +887,16 @@ function Compiler(source) {
 		}
 		
 		// 0EC2
-		else if (token == "uc-createAreaLight") {
+		else if (token == "uc-createSpotLight") {
 			this.inst(0x0E, 0xC2);
 		}
 		
+/*
 		// 0EC3
-		else if (token == "uc-createSpotLight") {
+		else if (token == "uc-") {
 			this.inst(0x0E, 0xC3);
 		}
+*/
 		
 		// 0EC4
 		else if (token == "uc-setLightColor") {
