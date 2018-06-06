@@ -719,7 +719,22 @@ function Compiler(source) {
 			this.inst(0x0E, 0x00);
 		}
 		
-		// 0E01..0E0F
+		// 0E01
+		else if (token == "uc-call") {
+			this.inst(0x0E, 0x01);
+		}
+		
+		// 0E02
+		else if (token == "uc-broadcast") {
+			this.inst(0x0E, 0x02);
+		}
+		
+		// 0E03
+		else if (token == "uc-send") {
+			this.inst(0x0E, 0x03);
+		}
+				
+		// 0E04..0E0F
 		
 		// 0E10
 		else if (token == "uc-moveX") {
@@ -861,14 +876,7 @@ function Compiler(source) {
 			this.inst(0x0E, 0xBF);
 		}		
 		
-		// 0EC0..0DFF
-		
-		// 0EF0
-		else if (token == "uc-send") {
-			this.inst(0x0E, 0xF0);
-		}
-		
-		// 0EF1..0EF8
+		// 0EC0..0EF8
 		
 		// 0EF9
 		else if (token == "uc-logging") {

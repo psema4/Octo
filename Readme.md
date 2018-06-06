@@ -16,8 +16,8 @@ To refer to UniCHIP8 extended opcodes in .u8o source files, set the necessary re
 instruction token:
 
     Misc
-      uc-test              uc-call              uc-send
-      uc-reparent          uc-destroy
+      uc-test              uc-call              uc-broadcast
+      uc-send              uc-reparent          uc-destroy
 
     Transform
       uc-move              uc-rotate            uc-scale
