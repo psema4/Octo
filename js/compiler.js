@@ -855,17 +855,17 @@ function Compiler(source) {
 		else if (token == "uc-setMaterialColor") {
 			this.inst(0x0E, 0xBB);
 		}
-/*
+
 		// 0EBC
-		else if (token == "") {
+		else if (token == "createEmpty") {
 			this.inst(0x0E, 0xBC);
 		}
 
 		// 0EBD
-		else if (token == "") {
+		else if (token == "lookAt") {
 			this.inst(0x0E, 0xBD);
 		}
-
+/*
 		// 0EBE
 		else if (token == "") {
 			this.inst(0x0E, 0xBE);
@@ -874,9 +874,39 @@ function Compiler(source) {
 		// 0EBF
 		else if (token == "uc-destroy") {
 			this.inst(0x0E, 0xBF);
-		}		
+		}
 		
-		// 0EC0..0EF8
+		// 0EC0
+		else if (token == "uc-createDirectionalLight") {
+			this.inst(0x0E, 0xC0);
+		}
+		
+		// 0EC1
+		else if (token == "uc-createPointLight") {
+			this.inst(0x0E, 0xC1);
+		}
+		
+		// 0EC2
+		else if (token == "uc-createAreaLight") {
+			this.inst(0x0E, 0xC2);
+		}
+		
+		// 0EC3
+		else if (token == "uc-createSpotLight") {
+			this.inst(0x0E, 0xC3);
+		}
+		
+		// 0EC4
+		else if (token == "uc-setLightColor") {
+			this.inst(0x0E, 0xC4);
+		}
+		
+		// 0EC5
+		else if (token == "uc-setLightIntensity") {
+			this.inst(0x0E, 0xC5);
+		}
+		
+		// 0EC6..0EF8
 		
 		// 0EF9
 		else if (token == "uc-logging") {

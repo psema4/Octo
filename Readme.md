@@ -24,14 +24,19 @@ instruction token:
       uc-moveX             uc-rotateX           uc-scaleX
       uc-moveY             uc-rotateY           uc-scaleY
       uc-moveZ             uc-rotateZ           uc-scaleZ
+	  uc-lookAt
 
     Create
       uc-create            uc-createCube        uc-createSphere
       uc-createCylinder    uc-createCapsule     uc-createPlane
-      uc-createQuad
+      uc-createQuad        uc-createEmpty		uc-createDirectionalLight
+	  uc-createPointLight  uc-createAreaLight   uc-createSpotLight
 
     Materials
       uc-addMaterial       uc-setMaterialColor
+	  
+	Lights
+	  uc-setLightColor     uc-setLightIntensity
 
     Machine state
       uc-clockMultiplier   uc-logging           uc-compatiblityMode
