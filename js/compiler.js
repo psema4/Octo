@@ -734,7 +734,12 @@ function Compiler(source) {
 			this.inst(0x0E, 0x03);
 		}
 				
-		// 0E04..0E0F
+		// 0E04
+		else if (token == "uc-interrupt") {
+			this.inst(0x0E, 0x04);
+		}
+		
+		// 0E05..0E0F
 		
 		// 0E10
 		else if (token == "uc-moveX") {
